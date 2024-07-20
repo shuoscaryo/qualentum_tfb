@@ -11,11 +11,12 @@
 !**/*/
 
 # Don't ignore these files
+BTCUSD_dataset_1H_100candles_balanced_model
 !results/*
 !old_models/*
 !BTCUSD_dataset_1H_100candles_balanced_results/*
 !environment.yml
-!./*.ipynb
-!./*.py
+!*.ipynb
+!*.py
 !.gitignore
 #ignore all these things
