@@ -1,0 +1,24 @@
+# Ignore everything
+*
+
+# Don't ignore directories
+!*/
+
+# Ignore all files in directories
+**/*
+
+# Don't ignore directories in directories
+!**/*/
+
+# Don't ignore these files
+!src/results/*
+!src/old_models/*
+!src/BTCUSD_graphs/*
+!src/BTCUSD_dataset_1H_100candles_balanced_results/*
+
+!.gitignore
+#ignore all object files and libraries
+**/*.o
+*.o
+**/*.a
+*.a
