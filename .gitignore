@@ -13,11 +13,13 @@
 # Don't ignore these files
 !src/results/*
 !src/old_models/*
-!src/BTCUSD_graphs/*
 !src/BTCUSD_dataset_1H_100candles_balanced_results/*
-
+!enviroment.yml
+!src/*.ipynb
+!src/*.py
 !.gitignore
-#ignore all object files and libraries
+#ignore all these things
+lib
 **/*.o
 *.o
 **/*.a
