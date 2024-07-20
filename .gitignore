@@ -11,16 +11,11 @@
 !**/*/
 
 # Don't ignore these files
-!src/results/*
-!src/old_models/*
-!src/BTCUSD_dataset_1H_100candles_balanced_results/*
-!enviroment.yml
-!src/*.ipynb
-!src/*.py
+!results/*
+!old_models/*
+!BTCUSD_dataset_1H_100candles_balanced_results/*
+!environment.yml
+!./*.ipynb
+!./*.py
 !.gitignore
 #ignore all these things
-lib
-**/*.o
-*.o
-**/*.a
-*.a
