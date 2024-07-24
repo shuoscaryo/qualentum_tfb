@@ -254,7 +254,7 @@ def balance_dataset(df, target_column, shuffle=False, seed=42):
 
     Args:
     - df (pd.DataFrame): Pandas DataFrame containing the dataset.
-    - target_column (pd.Series): Pandas Series representing the target variable (class labels).
+    - target_column (string): Name of the target column to balance the dataset.
     - shuffle (bool, optional): Whether to shuffle the balanced dataset (default: True).
     - seed (int, optional): Random seed for reproducibility (default: 42).
 
@@ -262,6 +262,7 @@ def balance_dataset(df, target_column, shuffle=False, seed=42):
     - pd.DataFrame: Balanced DataFrame with an equal number of samples for each class.
     """
     # Count the number of samples in each class
+    target_column = df[target_column]
     class_counts = target_column.value_counts()
     minority_class = class_counts.idxmin()
     minority_count = class_counts.min()
@@ -331,6 +332,7 @@ def plot_predictions_density(model, test_loader):
     if predictions_variance > 0:
         sns.kdeplot(df['Predictions'], fill=True)
         plt.axvline(0.5, color='red', linestyle='--')  # Add vertical line at 0.5
+        plt.xlim(0, 1)
         plt.xlabel('Predicted Values')
         plt.ylabel('Density')
         plt.title('Density Plot of Predicted Values')
