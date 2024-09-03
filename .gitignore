@@ -19,4 +19,5 @@ BTCUSD_dataset_1H_100candles_balanced_model
 !*.ipynb
 !*.py
 !.gitignore
+!dockerfile
 #ignore all these things
