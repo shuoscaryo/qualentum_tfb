@@ -1,5 +1,5 @@
 WORKDIR := $(shell dirname $(realpath $(MAKEFILE_LIST)))
-VOLUME := $(WORKDIR)/data
+VOLUME := $(WORKDIR)/src
 NAME := ia
 DOCKER_RUN := docker run -d -it --name "$(NAME)" -v "$(VOLUME)":/app "$(NAME)"
 DOCKER_BUILD := docker build -t "$(NAME)" .
@@ -48,21 +48,21 @@ run: check-docker $(VOLUME)
 
 stop: check-docker
 	@if [ ! -z "$(shell docker ps -q -f name=$(NAME))" ]; then \
-		echo "Stopping container $(NAME)."; \
+		echo "Stopping container $(NAME)"; \
 		docker stop $(NAME) > /dev/null; \
 	fi
 
 clean: check-docker stop
 	@if [ ! -z "$(shell docker ps -a -q -f name=$(NAME))" ]; then \
 		echo "Removing Docker container $(NAME)"; \
-		docker rm -f $(NAME); \
+		docker rm -f $(NAME) > /dev/null; \
 	fi
 	@if [ ! -z "$(shell docker images -q $(NAME))" ]; then \
 		echo "Removing Docker image $(NAME)"; \
-		docker rmi $(NAME); \
+		docker rmi $(NAME) > /dev/null; \
 	fi
 
-re: build run
+re: clean build run
 
 bash: check-docker
 	@docker exec -it $(NAME) bash
